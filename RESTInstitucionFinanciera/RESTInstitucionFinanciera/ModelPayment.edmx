@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDInsFinancieraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="payment_form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_credit_card" Type="nchar" MaxLength="10" />
+          <Property Name="credit_card_number" Type="nchar" MaxLength="20" />
+          <Property Name="name_holder" Type="nchar" MaxLength="50" />
+          <Property Name="expiry_date" Type="date" />
+          <Property Name="customer_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDInsFinancieraModelStoreContainer">
+          <EntitySet Name="payment_form" EntityType="Self.payment_form" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDInsFinancieraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="payment_form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_credit_card" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="credit_card_number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="name_holder" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="expiry_date" Type="DateTime" Precision="0" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDInsFinancieraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="payment_form" EntityType="Self.payment_form" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDInsFinancieraModelStoreContainer" CdmEntityContainer="BDInsFinancieraEntities">
+          <EntitySetMapping Name="payment_form">
+            <EntityTypeMapping TypeName="BDInsFinancieraModel.payment_form">
+              <MappingFragment StoreEntitySet="payment_form">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="type_credit_card" ColumnName="type_credit_card" />
+                <ScalarProperty Name="credit_card_number" ColumnName="credit_card_number" />
+                <ScalarProperty Name="name_holder" ColumnName="name_holder" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
