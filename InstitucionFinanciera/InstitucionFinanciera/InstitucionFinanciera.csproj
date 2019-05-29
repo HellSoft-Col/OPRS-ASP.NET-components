@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{742635EE-A6F3-4BD0-93A6-1F085BEEC233}</ProjectGuid>
+    <ProjectGuid>{DCC8E7F4-1FC0-402B-A164-EE3BC41A0C33}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RESTInstitucionFinanciera</RootNamespace>
-    <AssemblyName>RESTInstitucionFinanciera</AssemblyName>
+    <RootNamespace>InstitucionFinanciera</RootNamespace>
+    <AssemblyName>InstitucionFinanciera</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -89,53 +89,54 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="ModelPayment.Context.tt">
+    <Content Include="Models\InfoPagoModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelPayment.edmx</DependentUpon>
-      <LastGenOutput>ModelPayment.Context.cs</LastGenOutput>
+      <DependentUpon>InfoPagoModel.edmx</DependentUpon>
+      <LastGenOutput>InfoPagoModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelPayment.tt">
+    <Content Include="Models\InfoPagoModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelPayment.edmx</DependentUpon>
-      <LastGenOutput>ModelPayment.cs</LastGenOutput>
+      <DependentUpon>InfoPagoModel.edmx</DependentUpon>
+      <LastGenOutput>InfoPagoModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="FacadeValidarInfoPago.cs" />
+    <Compile Include="Controllers\FacadeValidarInfoPago.cs" />
+    <Compile Include="Controllers\InfoPagoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelPayment.Context.cs">
+    <Compile Include="Models\Comprobante.cs" />
+    <Compile Include="Models\InfoPago.cs">
+      <DependentUpon>InfoPagoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InfoPagoModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPayment.Context.tt</DependentUpon>
+      <DependentUpon>InfoPagoModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPayment.cs">
+    <Compile Include="Models\InfoPagoModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPayment.tt</DependentUpon>
+      <DependentUpon>InfoPagoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelPayment.Designer.cs">
+    <Compile Include="Models\InfoPagoModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelPayment.edmx</DependentUpon>
+      <DependentUpon>InfoPagoModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="payment_form.cs">
-      <DependentUpon>ModelPayment.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\payment_formController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="ModelPayment.edmx">
+    <EntityDeploy Include="Models\InfoPagoModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelPayment.Designer.cs</LastGenOutput>
+      <LastGenOutput>InfoPagoModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="ModelPayment.edmx.diagram">
-      <DependentUpon>ModelPayment.edmx</DependentUpon>
+    <Content Include="Models\InfoPagoModel.edmx.diagram">
+      <DependentUpon>InfoPagoModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -146,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -164,9 +164,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61042</DevelopmentServerPort>
+          <DevelopmentServerPort>64159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61042/</IISUrl>
+          <IISUrl>http://localhost:64159/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

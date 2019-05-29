@@ -7,18 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RESTInstitucionFinanciera
+namespace InstitucionFinanciera.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class payment_form
+    public partial class InfoPago
     {
         public int Id { get; set; }
-        public string type_credit_card { get; set; }
-        public string credit_card_number { get; set; }
-        public string name_holder { get; set; }
-        public Nullable<System.DateTime> expiry_date { get; set; }
-        public int customer_id { get; set; }
+        public string tipoDocumento { get; set; }
+        public string numDocumento { get; set; }
+        public string contraseña { get; set; }
+        public Nullable<int> monto { get; set; }
     }
 }
