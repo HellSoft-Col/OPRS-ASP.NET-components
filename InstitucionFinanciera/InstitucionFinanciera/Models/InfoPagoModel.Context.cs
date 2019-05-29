@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RESTInstitucionFinanciera
+namespace InstitucionFinanciera.Models
 {
     using System;
     using System.Data.Entity;
@@ -25,6 +25,6 @@ namespace RESTInstitucionFinanciera
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<payment_form> payment_form { get; set; }
+        public virtual DbSet<InfoPago> InfoPago { get; set; }
     }
 }
