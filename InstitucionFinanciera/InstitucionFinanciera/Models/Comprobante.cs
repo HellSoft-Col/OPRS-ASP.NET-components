@@ -7,14 +7,13 @@ namespace InstitucionFinanciera.Models
 {
     public class Comprobante
     {
-        public int numAprobacion { get; set; }
+        public string numAprobacion { get; set; }
 
         public string aprobacion { get; set; }
 
         public Comprobante()
         {
-            Random random = new Random();
-            numAprobacion = random.Next();
+            numAprobacion = Guid.NewGuid().ToString();
             aprobacion = DateTime.Now.ToString("d");
         }
     }
