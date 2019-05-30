@@ -19,7 +19,7 @@ namespace ConsumidorBuscarPropiedades.Controllers
         public ActionResult Index(string owner_id = "Default", float minPrice = -1, float maxPrice = -1)
         {
             IEnumerable<Propiedad> propiedad = proxyREST.ObtenerPropiedades(owner_id,minPrice, maxPrice);
-            if(propiedad != null)
+            if(propiedad == null)
             {
                 ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
             }
