@@ -142,6 +142,7 @@
     <Compile Include="Models\PropertyQueryDTO.cs" />
     <Compile Include="Models\Propiedad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxys\ProxyRESTBuscarPropiedades.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
