@@ -1,0 +1,50 @@
+﻿@model ConsumidorWebInstitucionFinanciera.Models.Aprobacion
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Consumir servicio Institucion financiera</h2>
+<form method="post">
+    <div class="form-group">
+        Tipo de documento
+        <select class="form-control form-control-sm">
+            <option name="tipoDoc" class="form-control">CC</option>/>
+            <option name="tipoDoc" class="form-control">TI</option>/>
+        </select>
+    </div>
+    <div class="form-group">
+        Número de documento <input type="number" name="numDoc" class="form-control">
+    </div>
+    <div class="form-group">
+        Contraseña <input type="password" name="password" class="form-control">
+    </div>
+    <div class="form-group">
+        Valor de descuento <input type="number" name="discountValue" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Solicitar aprobación</button>
+    </div>
+</form>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Número de aprobación
+            </th>
+            <th>
+                Fecha de aprobación
+            </th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.approvalNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.approvalDate)
+        </td>
+    </tr>
+</table>
+
+
