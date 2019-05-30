@@ -1,4 +1,4 @@
-﻿@model ConsumidorWebInstitucionFinanciera.Models.Aprobacion
+﻿@model ConsumidorWebInstitucionFinanciera.Models.Comprobante
 
 @{
     ViewBag.Title = "Index";
@@ -8,9 +8,9 @@
 <form method="post">
     <div class="form-group">
         Tipo de documento
-        <select class="form-control form-control-sm">
-            <option name="tipoDoc" class="form-control">CC</option>/>
-            <option name="tipoDoc" class="form-control">TI</option>/>
+        <select class="form-control form-control-sm" name="tipoDoc">
+            <option class="form-control">CC</option>/>
+            <option class="form-control">TI</option>/>
         </select>
     </div>
     <div class="form-group">
@@ -26,25 +26,27 @@
         <button type="submit" class="btn btn-primary mb-2">Solicitar aprobación</button>
     </div>
 </form>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                Número de aprobación
-            </th>
-            <th>
-                Fecha de aprobación
-            </th>
-        </tr>
-    </thead>
-    <tr>
-        <td>
-            @Html.DisplayFor(model => model.approvalNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.approvalDate)
-        </td>
-    </tr>
-</table>
+<div>
+    <h4>Comprobante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Número de aprobación
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numAprobacion)
+        </dd>
+
+        <dt>
+            Fecha de aprobación
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aprobacion)
+        </dd>
+
+    </dl>
+</div>
 
 

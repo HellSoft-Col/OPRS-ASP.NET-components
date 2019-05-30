@@ -12,35 +12,33 @@ namespace ConsumidorWebInstitucionFinanciera.Controllers
 {
     public class ServiciosController : Controller
     {
-        private string Baseurl = "http://localhost:8080/ServiciosRESTOPRS/webresources/serachProperty";
+        private string Baseurl = "http://localhost:64159/api/InfoPagoes";
+
         // GET: Servicios
         public ActionResult Index()
         {
             return View();
         }
 
-        // POST: Propiedades
+        // POST: Servicios
         [HttpPost]
-        public ActionResult Index(string tipoDoc, int numDoc, string password, float discountValue)
+        public ActionResult Index(string tipoDoc, string numDoc, string password, int discountValue)
         {
-            Aprobacion aprobacion = null;
-
+            Comprobante aprobacion = null;
             using (var client = new HttpClient())
             {
-                ServicioIF busqueda;
-                busqueda = new ServicioIF(tipoDoc, numDoc, password, discountValue);
+                InfoPago busqueda = new InfoPago(tipoDoc, numDoc, password, discountValue);
                 var myContent = JsonConvert.SerializeObject(busqueda);
                 var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
                 var byteContent = new ByteArrayContent(buffer);
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var responseTask = client.PostAsync(Baseurl, byteContent);
                 responseTask.Wait();
-
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
                     var readTask = result.Content.ReadAsStringAsync().Result;
-                    aprobacion = JsonConvert.DeserializeObject<Aprobacion>(readTask);
+                    aprobacion = JsonConvert.DeserializeObject<Comprobante>(readTask);
                 }
                 else
                 {
