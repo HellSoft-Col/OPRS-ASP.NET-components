@@ -1,4 +1,5 @@
 ﻿using ConsumidorWebInstitucionFinanciera.Models;
+using ConsumidorWebInstitucionFinanciera.Proxys;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,7 @@ namespace ConsumidorWebInstitucionFinanciera.Controllers
 {
     public class ServiciosController : Controller
     {
-        private string Baseurl = "http://localhost:64159/api/InfoPagoes";
-
+        ProxyRESTIF proxyIF = new ProxyRESTIF();
         // GET: Servicios
         public ActionResult Index()
         {
@@ -24,27 +24,10 @@ namespace ConsumidorWebInstitucionFinanciera.Controllers
         [HttpPost]
         public ActionResult Index(string tipoDoc, string numDoc, string password, int discountValue)
         {
-            Comprobante aprobacion = null;
-            using (var client = new HttpClient())
+            Comprobante aprobacion = proxyIF.ConsumirServicioIF(tipoDoc, numDoc, password, discountValue);
+            if(aprobacion == null)
             {
-                InfoPago busqueda = new InfoPago(tipoDoc, numDoc, password, discountValue);
-                var myContent = JsonConvert.SerializeObject(busqueda);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
-                var byteContent = new ByteArrayContent(buffer);
-                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var responseTask = client.PostAsync(Baseurl, byteContent);
-                responseTask.Wait();
-                var result = responseTask.Result;
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsStringAsync().Result;
-                    aprobacion = JsonConvert.DeserializeObject<Comprobante>(readTask);
-                }
-                else
-                {
-                    aprobacion = null;
-                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
-                }
+                ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
             }
             return View(aprobacion);
         }

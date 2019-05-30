@@ -134,6 +134,7 @@
     <Compile Include="Models\Comprobante.cs" />
     <Compile Include="Models\InfoPago.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxys\ProxyRESTIF.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
