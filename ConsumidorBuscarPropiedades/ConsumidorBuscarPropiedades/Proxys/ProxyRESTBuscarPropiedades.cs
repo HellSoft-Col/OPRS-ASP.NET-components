@@ -12,18 +12,43 @@ namespace ConsumidorBuscarPropiedades.Proxys
 {
     public class ProxyRESTBuscarPropiedades
     {
-        private string Baseurl = "http://localhost:8080/ServiciosRESTOPRS/webresources/serachProperty";
+        private string Baseurl = "http://10.192.12.26:8080/ServiciosRESTOPRS/webresources/serachProperty";
 
         public List<Propiedad> ObtenerPropiedades(string owner_id, float minPrice, float maxPrice)
         {
             List<Propiedad> propiedad = null;
             using (var client = new HttpClient())
             {
+                var myJson = "{";
                 PropertyQueryDTO busqueda;
-                busqueda = new PropertyQueryDTO(minPrice, maxPrice, owner_id);
-                var myContent = JsonConvert.SerializeObject(busqueda);
-                var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+                busqueda = new PropertyQueryDTO();
+                if(minPrice != -1 && maxPrice != -1)
+                {
+                    busqueda.maximalRent = maxPrice;
+                    busqueda.minimalRent = minPrice;
+
+                    myJson += "\"minimalRent\": " + minPrice.ToString() + ",";
+                    myJson += "\"maximalRent\": " + maxPrice.ToString() ;
+                }
+
+                if(owner_id != "")
+                {
+                    if (minPrice != -1 && maxPrice != -1)
+                    {
+                        myJson += ",";
+                    }
+                        
+                    myJson += "\"cedulaProp\": " + owner_id;
+                }
+
+                myJson += "}";
+                System.Console.WriteLine("-->" + busqueda);
+
+                //var myContent = JsonConvert.SerializeObject(busqueda);
+                var buffer = System.Text.Encoding.UTF8.GetBytes(myJson);
                 var byteContent = new ByteArrayContent(buffer);
+
+
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var responseTask = client.PostAsync(Baseurl, byteContent);
                 responseTask.Wait();

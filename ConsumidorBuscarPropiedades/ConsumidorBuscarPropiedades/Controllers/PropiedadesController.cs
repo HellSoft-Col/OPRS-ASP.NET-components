@@ -16,7 +16,7 @@ namespace ConsumidorBuscarPropiedades.Controllers
 
         // POST: Propiedades
         [HttpPost]
-        public ActionResult Index(string owner_id = "Default", float minPrice = -1, float maxPrice = -1)
+        public ActionResult Index(string owner_id = "", float minPrice = -1, float maxPrice = -1)
         {
             IEnumerable<Propiedad> propiedad = proxyREST.ObtenerPropiedades(owner_id,minPrice, maxPrice);
             if(propiedad == null)

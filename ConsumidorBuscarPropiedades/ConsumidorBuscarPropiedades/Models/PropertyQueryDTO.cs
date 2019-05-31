@@ -13,6 +13,10 @@ namespace ConsumidorBuscarPropiedades.Models
         [Required]
         public string cedulaProp { get; set; }
 
+        public PropertyQueryDTO()
+        {
+        }
+
         public PropertyQueryDTO(string cedulaProp)
         {
             this.cedulaProp = cedulaProp;
