@@ -11,7 +11,7 @@ namespace ConsumidorWebInstitucionFinanciera.Proxys
 {
     public class ProxyRESTIF
     {
-        private string Baseurl = "http://localhost:64159/api/InfoPagoes";
+        private string Baseurl = "http://10.192.12.27:8081/api/InfoPagoes";
 
         public Comprobante ConsumirServicioIF(string tipoDoc, string numDoc, string password, int discountValue)
         {
