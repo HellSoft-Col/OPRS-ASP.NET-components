@@ -11,13 +11,19 @@ namespace WcfInsFinanciera
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class InfoPago
     {
         public int Id { get; set; }
+        [DataMember]
         public string tipoDocumento { get; set; }
+        [DataMember]
         public string numDocumento { get; set; }
+        [DataMember]
         public string contraseña { get; set; }
+        [DataMember]
         public Nullable<int> monto { get; set; }
     }
 }
