@@ -139,6 +139,7 @@
     <Content Include="Models\InfoPagoModel.edmx.diagram">
       <DependentUpon>InfoPagoModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

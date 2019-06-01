@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>Consumir servicio Institucion financiera</h2>
+<form method="post">
+    <div class="form-group">
+        Tipo de documento
+        <select class="form-control form-control-sm" name="tipoDoc">
+            <option class="form-control">CC</option>/>
+            <option class="form-control">TI</option>/>
+        </select>
+    </div>
+    <div class="form-group">
+        Número de documento <input type="number" name="numDoc" class="form-control">
+    </div>
+    <div class="form-group">
+        Contraseña <input type="password" name="password" class="form-control">
+    </div>
+    <div class="form-group">
+        Valor de descuento <input type="number" name="discountValue" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mb-2">Solicitar aprobación</button>
+    </div>
+</form>
