@@ -40,10 +40,7 @@ namespace ConsumidorBuscarPropiedades.Proxys
                         
                     myJson += "\"cedulaProp\": " + owner_id;
                 }
-
                 myJson += "}";
-                System.Console.WriteLine("-->" + busqueda);
-
                 //var myContent = JsonConvert.SerializeObject(busqueda);
                 var buffer = System.Text.Encoding.UTF8.GetBytes(myJson);
                 var byteContent = new ByteArrayContent(buffer);
